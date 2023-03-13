@@ -23,7 +23,7 @@ This README file will describe what each script in this project is doing.
 21-reverse: The command rev reverses its input.
 22-users_and_homes: The command cut -d ':' -f 1,6 /etc/passwd | sort wiil write a script that displays all users and their home directories, sorted by users.
 100-empty_casks: This command find . -empty | rev | cut -d '/' -f 1 | rev will write a command that finds all empty files and directories in the current directory and all sub-directories.
-101-gifs: This command find -type f -name "*.gif" | rev | cut -d "/" -f 1 | cut -d '.' 2- | rev | LC_ALL=C sort -f writes a script that lists all the files with a .gif extension in the current directory and all its sub-directories.  
+101-gifs: This command find -type f -name "*.gif" | rev | cut -d "/" -f 1 | cut -d '.' -f 2- | rev | LC_ALL=C sort -f writes a script that lists all the files with a .gif extension in the current directory and all its sub-directories.  
 102-acrostic: The command cut -c 1 | paste -s -d '' will create a script that decodes acrostics that use the first letter of each line.
 103-the_biggest_fan: The command tail -n +2 | cut -f -1 | sort -k 1 | uniq -c | sort -rnk 1 | head -n 11 | rev | cut -d ' ' -f -1 | rev will write a script that parses web servers logs in TSV format as input and displays the 11 hosts or IP addresses which did the most requests.
 
