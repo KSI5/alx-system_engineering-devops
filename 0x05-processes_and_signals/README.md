@@ -36,3 +36,18 @@ A Bash script that displays "I am invincible!!!" indefinitely with a 2-second sl
 Description:
 A Bash script that kills the process named "7-highlander".
 
+100-process_and_pid_file
+This task will write a Bash script that performs various operations related to processes and PID files.
+
+Description:
+The script is designed to manage a process called manage_my_process and its corresponding PID file
+
+101-manage_my_process, manage_my_process
+
+Decription:
+This task involves creating a Bash script named 101-manage_my_process that can manage another Bash script called manage_my_process. The manage_my_process script is responsible for writing "To infinity and beyond" indefinitely to the file /tmp/my_process with a 2-second pause between each message. 
+
+102-zombie.c
+Decription:
+This task involves writing a C program named 102-zombie.c that creates 5 zombie processes and displays a message for each zombie process. The program will use the fork() system call to create child processes, and these child processes will become zombie processes.
+
