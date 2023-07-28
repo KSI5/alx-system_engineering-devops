@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Get a list of all processes containing the word "bash"
+# shellcheck disable=SC2009
+
+./1-list_your_processes | grep "bash"
