@@ -1,36 +1,37 @@
-nages the script manage_my_process.
+#!/usr/bin/env bash
+#Manages the script manage_my_process.
 
 if [ $# -eq 1 ]; then
-	    if [ "$1" == "start" ]; then
-		            if [ -f /var/run/my_process.pid ]; then
-				                echo "manage_my_process is already running"
-						        else
-								            ./manage_my_process &
-									                echo $! > /var/run/my_process.pid
-											            echo "manage_my_process started"
-												            fi
-													        elif [ "$1" == "stop" ]; then
-															        if [ -f /var/run/my_process.pid ]; then
-																	            pid=$(cat /var/run/my_process.pid)
-																		                kill "$pid"
-																				            rm /var/run/my_process.pid
-																					                echo "manage_my_process stopped"
-																							        else
-																									            echo "manage_my_process is not running"
-																										            fi
-																											        elif [ "$1" == "restart" ]; then
-																													        if [ -f /var/run/my_process.pid ]; then
-																															            pid=$(cat /var/run/my_process.pid)
-																																                kill "$pid"
-																																		            rm /var/run/my_process.pid
-																																			            fi
-																																				            ./manage_my_process &
-																																					            echo $! > /var/run/my_process.pid
-																																						            echo "manage_my_process restarted"
-																																							        else
-																																									        echo "Usage: 101-manage_my_process {start|stop|restart}"
-																																										    fi
-																																									    else
-																																										        echo "Usage: 101-manage_my_process {start|stop|restart}"
+    if [ "$1" == "start" ]; then
+        if [ -f /var/run/my_process.pid ]; then
+            echo "manage_my_process is already running"
+        else
+            ./manage_my_process &
+            echo $! > /var/run/my_process.pid
+            echo "manage_my_process started"
+        fi
+    elif [ "$1" == "stop" ]; then
+        if [ -f /var/run/my_process.pid ]; then
+            pid=$(cat /var/run/my_process.pid)
+            kill "$pid"
+            rm /var/run/my_process.pid
+            echo "manage_my_process stopped"
+        else
+            echo "manage_my_process is not running"
+        fi
+    elif [ "$1" == "restart" ]; then
+        if [ -f /var/run/my_process.pid ]; then
+            pid=$(cat /var/run/my_process.pid)
+            kill "$pid"
+            rm /var/run/my_process.pid
+        fi
+        ./manage_my_process &
+        echo $! > /var/run/my_process.pid
+        echo "manage_my_process restarted"
+    else
+        echo "Usage: 101-manage_my_process {start|stop|restart}"
+    fi
+else
+    echo "Usage: 101-manage_my_process {start|stop|restart}"
 fi
 
