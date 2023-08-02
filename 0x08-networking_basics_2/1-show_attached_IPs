@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Script that displays all active IPv4 IPs on the machine it’s executed on.
+# Use the 'hostname' command with the '-I' option to get all active IPv4 addresses
+# and then use 'cut' to extract the first IP address (the output may have multiple IPs separated by spaces).
+# Alternatively, use 'hostname' command with the '-i' option to get the first active IPv4 address directly.
+
+hostname -I | cut -d' ' -f1 ; hostname -i
