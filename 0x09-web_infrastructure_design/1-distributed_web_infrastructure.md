@@ -6,7 +6,7 @@
 
 This distributed web infrastructure dynamically splits incoming traffic between two servers—a primary server and a replica server—to maximize performance and dependability. To effectively distribute the workload among multiple servers and guarantee that the primary server is not overworked, a dedicated load balancer is used. This method offers a smooth user experience while improving the scalability and robustness of the infrastructure. 
 
-##Specifics About This Infrastructure
+## Specifics About This Infrastructure
 
 **Distribution Algorithm of the Load Balancer and How It Works:**<br/>
 The HAProxy load balancer employs the Round Robin distribution algorithm. This algorithm cycles through each server behind the load balancer in a sequential order based on their weights. Round Robin ensures an equitable distribution of processing load, and it remains one of the most impartial algorithms. It accommodates dynamic adjustments to server weights as needed.
