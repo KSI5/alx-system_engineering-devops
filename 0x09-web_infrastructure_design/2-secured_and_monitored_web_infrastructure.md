@@ -1,10 +1,9 @@
-##Description
-This infrastructure comprises three servers, designed to ensure security, monitoring, and encrypted traffic for web services.
-
 # Secured and Monitored Web Infrastructure
 
 ![Image of a secured and monitored infrastructure](2-secured_and_monitored_web_infrastructure.jpg)
 
+## Description
+This infrastructure comprises three servers, designed to ensure security, monitoring, and encrypted traffic for web services.
 
 **Firewalls (x3):**<br/>
  These were added to improve security by filtering and keeping track of incoming and outgoing traffic. wards off any dangers and unwanted entry.
