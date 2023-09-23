@@ -9,7 +9,7 @@ This repository contains my solutions to the System Engineering & DevOps tasks f
 | [0. Use a private key](#0-use-a-private-key) | Write a Bash script to connect to a server using an SSH private key. |
 | [1. Create an SSH key pair](#1-create-an-ssh-key-pair) | Write a Bash script to create an RSA key pair with a passphrase. |
 | [2. Client configuration file](#2-client-configuration-file) | Configure SSH client to use a private key and refuse password authentication. |
-| [3. 100-puppet_ssh_config.pp] (#100-puppet_ssh_config.pp) | Configure SSH client settings on the target system. |
+| [3. Client configuration file (w/ Puppet)] (#100-puppet_ssh_config.pp) | Configure SSH client settings on the target system. |
 
 ## Tasks 📖
 
