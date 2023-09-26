@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
-# Script that configures a new Ubuntu machine to respect above requirements
+# Install and configure Nginx on web-01
 
+# Update package list
 apt-get update
-apt-get install -y nginx
 
-echo "Holberton School" | sudo tee /var/www/html/index.html
+# Install Nginx
+apt-get -y install nginx
 
-service nginx restart
+# Create a default HTML file with "Hello World!"
+echo "Hello World!" > /var/www/html/index.html
+
+# Check if Nginx is not running, then start it
+if ! pgrep -x nginx > /dev/null; then
+    service nginx start
+fi
