@@ -1,17 +1,5 @@
-# Access the container's shell
-sudo docker exec -it magical_benz bash
+#!/usr/bin/env bash
+# apache 2
 
-# Update Apache's configuration (use vi or nano to edit the config file)
-vi /etc/apache2/sites-available/000-default.conf
-
-# Ensure the DocumentRoot is set to /var/www/html
-# Example:
-# DocumentRoot /var/www/html
-
-# Save and exit the text editor
-
-# Restart the Apache service (or start it if it's not running)
-service apache2 restart
-
-# Exit the container's shell
-exit
+sudo echo "Hello Holberton" | /var/www/html/index.html
+sudo service apache2 start
