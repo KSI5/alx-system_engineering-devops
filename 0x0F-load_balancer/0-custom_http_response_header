@@ -18,8 +18,8 @@ server {
     server_name _;
 
     location / {
-        add_header X-Served-By \$hostname;
-        index index.html;
+        add_header X-Served-By \$host;
+        return 200 'Hello, this is web-01!';
     }
 }
 EOF
