@@ -1,24 +1,49 @@
-#!/usr/bin/env bash
+# Global settings
 global
-        log /dev/log    local0
-	stats socket /run/haproxy/admin.sock mode 660 level admin
+    log /dev/log local0
+    log /dev/log local1 notice
+    chroot /var/lib/haproxy
+    stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+    stats timeout 30s
+    user haproxy
+    group haproxy
+    daemon
 
+# Default SSL material locations
+ssl-default-bind-ciphers AES256+EECDH:AES256+EDH
+ssl-default-bind-options no-sslv3
+
+# Default frontend to redirect HTTP to HTTPS
 defaults
-        log     global
-        mode    http
-        option  httplog
-	timeout connect  10s
-	timeout client  30s
-	timeout server  30s
+    mode http
+    log global
+    option httplog
+    option dontlognull
+    timeout connect 5000
+    timeout client 50000
+    timeout server 50000
 
-frontend th3gr00t-tech-frontend
-	bind *:80
-	bind *:443 ssl crt /etc/haproxy/certs/chrisigebs.tech.pem
-	http-request redirect scheme https code 301 unless { ssl_fc }
-	http-request set-header X-Forwarded-Proto https
-	default_backend chrisigebs-tech-backend
+# Frontend to redirect HTTP to HTTPS
+frontend http-to-https
+    bind *:80
+    mode http
+    option forwardfor
+    redirect scheme https code 301 if !{ ssl_fc }
 
-backend th3gr00t-tech-backend
-	balance roundrobin
-	server 346671-web-01 52.3.246.137:80 check
-	server 346671-web-02 3.84.222.135:80 check
+# Frontend for HTTPS traffic
+frontend https-in
+    bind *:443 ssl crt /etc/ssl/private/your_cert.pem
+    mode http
+    option forwardfor
+    default_backend your_backend
+
+# Backend for handling HTTPS requests (replace with your backend configuration)
+backend your_backend
+    mode http
+    balance roundrobin
+    server webserver1 192.168.1.101:443 check ssl verify none
+    # Add more servers if needed
+
+# Define any additional backends here if necessary
+
+
