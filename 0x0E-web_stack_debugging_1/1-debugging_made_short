@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-
-# Configures Nginx to listen on port 80
+# configure nginx to listen on port 80 and kill it
 sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
-
-# Restart Nginx
-service nginx restart
-
-# Truncate the nginx.pid file
-truncate -s 0 /run/nginx.pid
+pkill -f --signal 1 "/usr/sbin/nginx"
