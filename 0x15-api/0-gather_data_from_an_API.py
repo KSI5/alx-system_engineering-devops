@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """
-This script retrieves and displays TODO list information for a given employee ID
-using the JSONPlaceholder API.
+This script retrieves information about an employee's TODO list progress from a REST API and
+displays it on the standard output. It accepts an employee ID as a parameter and formats the
+output in a specific way.
+Requirements for this script include using the 'requests' module and following the specified
+output format.
 """
 
 import requests
@@ -42,4 +45,3 @@ if __name__ == "__main__":
 
     employee_id = int(sys.argv[1])
     get_employee_todo_progress(employee_id)
-
