@@ -1,11 +1,7 @@
 #!/usr/bin/python3
-"""
-This script retrieves information about an employee's TODO list progress from a REST API and
-displays it on the standard output. It accepts an employee ID as a parameter and formats the
-output in a specific way.
-Requirements for this script include using the 'requests' module and following the specified
-output format.
-"""
+"""This script retrieves information about an employee's TODO list progress from a REST API and
+displays it on the standard output."""
+
 import requests
 import sys
 
