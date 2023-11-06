@@ -1,6 +1,6 @@
 # Postmortem Report - Service Outage on November 5, 2023
 
-![Technical Difficulties](https://camo.githubusercontent.com/10ef6a0ba48084f7fe4efcc89b78cf00437b4b449b97b50dcd7c3b34385cdc74/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f44373179795a41576k4141505262622e6a7067)
+<p align="center"><a href="url"><img src="https://pbs.twimg.com/media/D71yyZAWkAAPRbb.jpg" width="480" height="360"></a></p>
 
 
 ## Issue Summary
