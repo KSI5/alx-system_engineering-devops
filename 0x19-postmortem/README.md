@@ -55,8 +55,9 @@ To prevent future outages and improve our system, we will:
 - Develop a clear escalation plan to involve vendor support promptly in cases of suspected hardware issues.
 - Conduct regular hardware maintenance and testing to identify potential issues before they lead to outages.
 
-![Happy Emoji](url-to-happy-emoji.png)
-
+<a href="url">
+    <img src="https://img.freepik.com/free-photo/curly-haired-girl-winter-yellow-sweater-dances-with-arms-spreading-air-enjoys-music-has-overjoyed-face-expression-poses-indoor_273609-32580.jpg?w=740&t=st=1699305240~exp=1699305840~hmac=3e54d23f6c74a9cdab7ef866baebf2a892dc7cb2fea510c537767d54948dfef7" width="380" height="260">
+  </a>
 By implementing these measures, we aim to ensure the stability and reliability of our cloud storage platform, minimize downtime, and provide a seamless experience for our users. We understand the critical importance of our service and are committed to preventing future disruptions.
 
 In conclusion, while outages are disruptive, they also present an opportunity to strengthen our systems and processes. We value the trust our users place in our service and will continue to learn from incidents like this to prevent them from happening again.
