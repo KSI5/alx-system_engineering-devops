@@ -6,8 +6,9 @@ This repository contains Python scripts for interacting with the Reddit API to p
 
 - [0-subs.py](#0-subs.py)
 - [1-top_ten.py](#1-top_ten.py)
-- [100-count.py](#100-count.py)
 - [2-recurse.py](#2-recurse.py)
+- [100-count.py](#100-count.py)
+
 
 ---
 
@@ -31,15 +32,6 @@ The Python script, `1-top_ten.py`, queries the Reddit API to retrieve and print 
 
 ---
 
-## 100-count.py :bar_chart:
-
-![Python](https://img.shields.io/badge/Python-3.4%20%7C%203.8%20%7C%203.9-blue)
-
-`100-count.py` is a Python script that uses recursive functions to query the Reddit API, parse the titles of hot articles, and print a sorted count of specified keywords. The code counts the keywords based on their occurrences in post titles, and the results are printed in descending order by count, and alphabetically for keywords with the same count.
-
-:arrow_right: [100-count.py Script](100-count.py)
-
----
 
 ## 2-recurse.py :repeat:
 
@@ -51,8 +43,13 @@ The Python script `2-recurse.py` is designed to recursively query the Reddit API
 
 ---
 
+## 100-count.py :bar_chart:
+
+![Python](https://img.shields.io/badge/Python-3.4%20%7C%203.8%20%7C%203.9-blue)
+
+`100-count.py` is a Python script that uses recursive functions to query the Reddit API, parse the titles of hot articles, and print a sorted count of specified keywords. The code counts the keywords based on their occurrences in post titles, and the results are printed in descending order by count, and alphabetically for keywords with the same count.
+
+:arrow_right: [100-count.py Script](100-count.py)
+
 These scripts provide various functionalities for interacting with the Reddit API and can be used to retrieve information about subreddits and their posts, making them useful tools for working with Reddit data. Enjoy exploring and using them!
-
-:memo: _This README was generated with ❤️ using markdown._
-
 
