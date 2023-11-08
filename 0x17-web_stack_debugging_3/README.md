@@ -1,4 +1,4 @@
-# 0x17-web_stack_debugging_3 � 🚶‍♂️
+# 0x17-web_stack_debugging_3 📖
 
 ## Task 📜
 
@@ -12,6 +12,6 @@ As I navigated through the task, I learned valuable lessons in problem-solving a
 
 This adventure was a thrilling journey of discovery and empowerment, and it left me with a sense of accomplishment in conquering the web stack's intricate terrain.
 
-🚀 Join me on this quest, and let's explore the boundless world of web stack debugging together!
+Join me on this quest, and let's explore the boundless world of web stack debugging together! 🚀
 
 ---
