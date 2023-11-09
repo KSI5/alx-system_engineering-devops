@@ -1,53 +1,68 @@
 #!/usr/bin/python3
-""" 0. Count it!
+
 """
-import requests
+importing requests module
+"""
+
+from requests import get
 
 
-def hot_dict_fill(response, word_list, hot_dict, after):
-    """ Fill hot dict increment count words
+def count_words(subreddit, word_list=[], after=None, cleaned_dict=None):
     """
-    titles = response.json().get("data").get("children")
-    for title in titles:
-        for hot_word in word_list:
-            title_post = title.get("data").get("title")
-            if title_post:
-                words_in_title = title_post.split()
-                for word_title in words_in_title:
-                    if hot_word.lower() == word_title.lower():
-                        hot_dict[hot_word] += 1
-    if not after:
-        for k, v in sorted(hot_dict.items(),
-                           key=lambda items: (items[1], items[0]),
-                           reverse=True):
-            if v != 0:
-                print("{}: {}".format(k, v))
-
-
-def count_words(subreddit, word_list, after=None, hot_dict={}):
-    """Write a recursive function that queries the Reddit API, parses the
-    title of all hot articles, and prints a sorted count of given keywords
-    (case-insensitive, delimited by spaces. Javascript should count as
-    javascript, but java should not).
+    function that queries the Reddit API, parses the title of all hot articles,
+    and prints a sorted count of given keywords (case-insensitive, delimited by
+    spaces. Javascript should count as javascript, but java should not).
     """
-    headers = {'User-Agent': 'DiegoOrejuela'}
-    params = {"limit": 100, 'after': after}
-    response = requests.get("https://www.reddit.com/r/{}/hot/.json".
-                            format(subreddit), headers=headers, params=params)
 
-    if len(hot_dict) == 0:
-        for hot_word in word_list:
-            hot_dict[hot_word] = 0
+    temp = []
 
-    if response.status_code == 200:
-        after_response = response.json().get("data").get("after")
-        if after_response:
-            count_words(subreddit, word_list,
-                        after=after_response, hot_dict=hot_dict)
-            hot_dict_fill(response, word_list, hot_dict, after)
-            return(hot_dict)
-        else:
-            hot_dict_fill(response, word_list, hot_dict, after)
-            return(hot_dict)
-    else:
-        return(None)
+    for i in word_list:
+        temp.append(i.casefold())
+
+    cleaned_word_list = list(dict.fromkeys(temp))
+
+    if cleaned_dict is None:
+        cleaned_dict = dict.fromkeys(cleaned_word_list)
+
+    params = {'show': 'all'}
+
+    if subreddit is None or not isinstance(subreddit, str):
+        return None
+
+    user_agent = {'User-agent': 'Google Chrome Version 81.0.4044.129'}
+
+    url = 'https://www.reddit.com/r/{}/hot/.json?after={}'.format(subreddit,
+                                                                  after)
+
+    response = get(url, headers=user_agent, params=params)
+
+    if (response.status_code != 200):
+        return None
+
+    all_data = response.json()
+    raw1 = all_data.get('data').get('children')
+    after = all_data.get('data').get('after')
+
+    if after is None:
+        new = {k: v for k, v in cleaned_dict.items() if v is not None}
+
+        for k in sorted(new.items(), key=lambda x: (-x[1], x[0])):
+            print("{}: {}".format(k[0], k[1]))
+
+        return None
+
+    for i in raw1:
+        title = i.get('data').get('title')
+
+        split_title = title.split()
+
+        split_title2 = [i.casefold() for i in split_title]
+
+        for j in split_title2:
+            if j in cleaned_dict and cleaned_dict[j] is None:
+                cleaned_dict[j] = 1
+
+            elif j in cleaned_dict and cleaned_dict[j] is not None:
+                cleaned_dict[j] += 1
+
+    count_words(subreddit, word_list, after, cleaned_dict)
